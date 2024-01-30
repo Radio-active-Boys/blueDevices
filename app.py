@@ -1,10 +1,12 @@
 import os
-from flask import Flask, render_template, jsonify, send_file
+from flask import Flask, render_template, jsonify, send_file, send_from_directory
 from pymongo import MongoClient
 import csv
 from io import BytesIO, StringIO
 from dotenv import load_dotenv
 import json
+
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -67,6 +69,13 @@ def download_json(collection_name):
     )
 
     return response
+
+
+@app.route('/download_setup')
+def download_setup():
+    setup_file_path = os.path.join(app.root_path, 'file', 'setup.sh')
+    return send_from_directory(app.root_path, 'file/setup.sh', as_attachment=True)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
