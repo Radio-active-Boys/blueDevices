@@ -6,6 +6,8 @@ sudo apt upgrade -y
 
 # Install necessary packages
 sudo apt install -y python3 git python3-venv python3-pip
+sudo apt-get install pi-bluetooth
+sudo apt-get install bluetooth bluez blueman
 
 # Set git configuration
 git config --global user.name "YourUsername"
