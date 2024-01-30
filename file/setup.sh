@@ -34,5 +34,5 @@ if [[ $VIRTUAL_ENV == "" ]]; then
   echo "Virtual environment is not activated. Please activate it before running the app."
 else
   # Run your app
-  python app.py
+  sudo python app.py
 fi
